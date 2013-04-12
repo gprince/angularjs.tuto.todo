@@ -1,0 +1,138 @@
+﻿@font-face {
+    font-family: 'from_where_you_areregular';
+    src: url('../font/fromwhereyouare-webfont.eot');
+    src: url('../font/fromwhereyouare-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/fromwhereyouare-webfont.woff') format('woff'),
+         url('../font/fromwhereyouare-webfont.ttf') format('truetype'),
+         url('../font/fromwhereyouare-webfont.svg#from_where_you_areregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {background: #fff url(../img/Melamine-wood-004.png) top center repeat;}
+body {
+	width: 580px; 
+	margin: 20px auto !important;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; 
+}
+	
+	
+body, input, button, select, textarea {
+	font-family: 'from_where_you_areregular', "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.btn { font-size: 11px;}
+
+[role="main"] {
+	padding: 0px;
+	background: #FEFEFE; 
+	-moz-box-shadow: 0 0 8px #000;
+    -webkit-box-shadow: 0 0 8px #000;
+    box-shadow: 0 0 8px #000;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;}
+	
+[role="main"] h1 {
+	position: relative;
+	margin: 0; 
+	padding: 6px 0 2px; 
+	text-align: center;
+	
+	background-image: linear-gradient(bottom, rgb(255,116,24) 0%, rgb(255,179,1) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(255,116,24) 0%, rgb(255,179,1) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(255,116,24) 0%, rgb(255,179,1) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(255,116,24) 0%, rgb(255,179,1) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(255,116,24) 0%, rgb(255,179,1) 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(255,116,24)),
+		color-stop(1, rgb(255,179,1))
+	);
+	
+	font-weight: normal;
+	font-size: 26px;
+	
+	color: #0c0c0c;
+	
+	/*-moz-box-shadow: 0 2px 1px #888;
+    -webkit-box-shadow: 0 2px 1px #888;
+    box-shadow: 0 2px 1px #888;*/
+	-moz-border-top-left-radius: 10px;
+	-webkit-top-left-border-radius: 10px;
+    border-top-left-radius: 10px;
+	-moz-border-top-right-radius: 10px;
+	-webkit-top-right-border-radius: 10px;
+    border-top-right-radius: 10px;
+	z-index: 10;}	
+	
+[role="main"] h2 {
+	margin: 0;
+	padding: 4px 8px; 
+	font-size: 14px;
+	font-weight: normal;
+	font-style: italic;
+	color: #808080;
+	background-color: #fbfbfe;
+}
+
+#todo-vider {position:relative; left:460px;}
+	
+.todolist {margin: 0; padding: 0; list-style: none; border-top: #E8E9EB 1px solid;}
+.todolist  li {padding: 10px 10px 8px; border-bottom: #E8E9EB 1px solid;}
+.todo label {width: 100%;}
+.todo {
+	-webkit-transition: background-color .3s ease-in;
+    -moz-transition: background-color .3s ease-in;
+    -o-transition: background-color .3s ease-in;
+    transition: background-color .3s ease-in;
+}
+.todo:hover {background-color: #F1F0EE;}
+
+.todolist::before {
+	content: "\00a0";
+	position: absolute;
+	display: block;
+	width: 42px;
+	height: 100%;
+	border-right: #ffe4de 4px double;
+}
+
+.css3-checkboxes input[type="checkbox"]:checked + span {
+	font-style: italic;
+	text-decoration: line-through;
+	color: #aeaeae;
+}
+
+.css3-checkboxes input[type="checkbox"]:checked + span::before {
+	font-style: normal;
+	text-decoration: none;
+}
+
+.form-todo {
+	position: relative;
+	padding: 8px 8px;
+	background-color: #fafafa;
+	-moz-border-bottom-left-radius: 10px;
+	-webkit-bottom-left-border-radius: 10px;
+    border-bottom-left-radius: 10px;
+	-moz-border-bottom-right-radius: 10px;
+	-webkit-bottom-right-border-radius: 10px;
+    border-bottom-right-radius: 10px;	
+	z-index: 10;}
+	
+[name="todo-text"] {width: 450px;}
+
+::-webkit-input-placeholder {font-size: 11px;}
+::-moz-placeholder {font-size: 10px;} /* firefox 19+ */
+:-ms-input-placeholder {font-size: 10px;} /* ie */
+input:-moz-placeholder {font-size: 10px;}
+input::-webkit-input-placeholder{
+    position: relative;
+	top: 4px;
+}

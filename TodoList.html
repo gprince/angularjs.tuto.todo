@@ -1,0 +1,36 @@
+﻿<!DOCTYPE HTML>
+<html lang="fr" ng-app="TodoList">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular JS - Todo liste off-line</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Exemple de Todo liste off-line avec AngularJS, local storage, bootstrap et bootstrap UI">
+	<meta name="author" content="G. Prince - sqli - 2013">	
+	<link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="./assets/css/checkbox.css" rel="stylesheet">
+	<link href="./assets/css/todolist.css" rel="stylesheet">
+</head>
+<body>
+	<section id="myTodoList" role="main" ng-controller="TodoController">
+		<h1>Todo Liste</h1>
+		<h2>{{todos.length}} todos <button id="todo-vider" class="btn" ng-disabled="!todos.length > 0" ng-click='deleteTodos()' tooltip-animation="true" tooltip-placement="left" tooltip="Supprimer tous les terminés..."><span class="icon-trash"></span></button></h2>
+		<ul class="todolist css3-checkboxes">
+			<li class="todo" ng-repeat="todo in todos | orderBy: 'done' : true : 'id' : false">
+				<label><input type="checkbox" ng-model="todo.done" ng-change="updateTodo(todo)"><span>{{todo.description}}</span></label>
+			</li>
+		</ul>
+		<form class="form-horizontal form-todo">
+			<input type="text" name="todo-text" ng-required="true" ng-model="todo.description" placeholder="Texte de la tâche">
+			<button class="btn" ng-click="addTodo()" ng-disabled="!todo.description"><span class="icon-plus"></span>&nbsp;Ajouter</button>
+	    </form>
+	</section>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+	<script src="./assets/js/bootstrap.min.js"></script>	
+	<script src="./assets/js/ui-bootstrap-tpls-0.2.0.min.js"></script>	
+	<script src="./assets/js/underscore.min.js"></script>	
+	<script src="./TodoList.js"></script>
+	<script src="./controllers/TodoController.js"></script>
+	<script src="./models/TodoModel.js"></script>	
+</body>
+</html>
