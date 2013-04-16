@@ -13,7 +13,10 @@
 <body>
 	<section id="myTodoList" role="main" ng-controller="TodoController">
 		<h1>Todo Liste</h1>
-		<h2>{{todos.length}} todos <button id="todo-vider" class="btn" ng-disabled="!todos.length > 0" ng-click='deleteTodos()' tooltip-animation="true" tooltip-placement="left" tooltip="Supprimer tous les terminés..."><span class="icon-trash"></span></button></h2>
+		<h2>
+			<span>{{todos.length}} <ng-pluralize count="todos.length" when="{'0': 'todo', '1': 'todo', 'other': 'todos'}" /></span>
+			<button id="todo-vider" class="btn" ng-disabled="!todos.length > 0" ng-click='deleteTodos()' tooltip-animation="true" tooltip-placement="left" tooltip="Supprimer tous les terminés..."><span class="icon-trash"></span></button>
+		</h2>
 		<ul class="todolist css3-checkboxes">
 			<li class="todo" ng-repeat="todo in todos | orderBy: 'done' : true : 'id' : false">
 				<label><input type="checkbox" ng-model="todo.done" ng-change="updateTodo(todo)"><span>{{todo.description}}</span></label>
