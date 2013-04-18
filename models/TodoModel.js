@@ -21,8 +21,12 @@ TodoList.service(
 		 * @return [] La liste récupérée depuis le local storage si elle existe ou une liste vide sinon
 		 */
 		this.getTodos = function () {
+    
+      /* Récupération de la liste depuis le local storage */
 			var todos = JSON.parse(window.localStorage.getItem('todos'));
-			if(!todos) { return []; /* Aucune liste n'existe on retourne une nouvelle liste vide */ }
+      
+      /* Si la liste n'existe pas on retourne une nouvelle liste vide */
+			if(!todos) { return []; }
 			return todos;
 		};
 		
@@ -33,19 +37,30 @@ TodoList.service(
 		 *			Description du todo
 		 */
 		this.addTodo = function(description) {
+    
+      /* La date courante servira d’ID */
 			var now = new Date();
+      
+      /* Création de l’objet à persister Todo */
 			var todo = {
 				id: now,
                 description: description,
                 done: false
             };
 			
+      /* Récupération de la liste depuis le local storage */
 			var todos = JSON.parse(window.localStorage.getItem('todos'));
+      
+      /* Si la liste n'existe pas on crée une nouvelle liste vide */
 			if(!todos) { todos = []; }
+      
+      /* On y ajoute notre todo */
 			todos.push(todo);
 			
+      /* On persiste la liste */
 			window.localStorage.setItem('todos', JSON.stringify(todos));
 			
+      /* Finalement on retourne la liste modifiée */
 			return todos;
 		};
 		
@@ -58,29 +73,43 @@ TodoList.service(
 		this.updateTodo = function(todo) {
 			if(!todo) return;
 			
+      /* Récupération de la liste depuis le local storage */
 			var todos = JSON.parse(window.localStorage.getItem('todos'));
-			if(!todos) { return []; }
+      
+      /* Si la liste n'existe pas on crée une nouvelle liste vide */
+			if(!todos) { todos = []; }
 			
+      /* On cherche le todo */
 			for (var i = 0; i < todos.length; i++) {
-                if(todos[i].id === todo.id) {
-                    todos[i].done = todo.done;
-                    window.localStorage.setItem('todos', JSON.stringify(todos));
-                    return;
-                }
-            }
+      
+        if(todos[i].id === todo.id) {
+          /* on met à jour l'état */
+          todos[i].done = todo.done;
+          
+          /* et on sauvegarde la liste avant de sortir */
+          window.localStorage.setItem('todos', JSON.stringify(todos));
+          return;
+        }
+      }
 		};
 		
 		/**
-		 * Supprimer les todos dont l'état est 'Terminé'
+		 * Supprimer les todos dont l'état est : 'Terminé'
 		 */
 		this.deleteTodos = function() {
-			var todos = JSON.parse(window.localStorage.getItem('todos'));
-			if(!todos) { return []; }
-			
-			// On utilise underscore JS pour filtrer la liste et retournée une nouvelle liste sans todos à l'état 'Terminé'
-			todos = _.filter(todos, function(todo) { return !todo.done; } );
-			window.localStorage.setItem('todos', JSON.stringify(todos));
-			return todos;
+    
+      /* Récupération de la liste depuis le local storage */
+      var todos = JSON.parse(window.localStorage.getItem('todos'));
+
+      /* Si la liste n'existe pas on crée une nouvelle liste vide */
+      if(!todos) { todos = []; }
+
+      /* filtrage de la liste */
+      todos = _.filter(todos, function(todo) { return !todo.done; } );
+
+      /* sauvegarde la liste filtrée avant de sortir */
+      window.localStorage.setItem('todos', JSON.stringify(todos));
+      return todos;
 		};
 		
 		/**
