@@ -27,6 +27,7 @@ TodoList.controller(
 		$scope.addTodo = function () {
 			// On fait appel au modèle pour ajouter le doto et on retourne la liste mise à jour
 			$scope.todos = TodoModel.addTodo($scope.todo.description);
+			$scope.todo.description = ""; 
 		};
 		
 		/**
