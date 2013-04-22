@@ -1,7 +1,9 @@
 angularjs.tuto.todo
 ===================
 
-Tutoriel N°1 pour AngularJS - Les bases
+#Tutoriel N°1 pour AngularJS - Les bases
+
+##Motivation
 
 Il s'agit d'un Todo Liste basique.
 
